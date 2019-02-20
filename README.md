@@ -10,7 +10,7 @@ varios clientes
 ## En cliente 
 
 Tiene que tener un display donde poner el EAN13 y el password, 
-- [ ]buscar como generar EAN13  y tambien como validarlo.
+- [ ] Buscar como generar EAN13  y tambien como validarlo.
 ## En administración :
 - Alta y baja de usuarios.
 - listado de eventos en tiempo real.
