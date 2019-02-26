@@ -1,14 +1,15 @@
 #include <QDebug>
+#include <iostream>
 #include "basedatos.h"
 
-BaseDatos::BaseDatos()
+BaseDatos::BaseDatos(QString hostname,int port, QString database,QString user,QString pass )
 {
-
+///asignar valores a los campos de clase
 }
-///TODO: Crear un programa nuevo en qt para leer un archivo de
-/// Configuracion.
+
 void BaseDatos::connectDatabase()
 {
+
     mdb = QSqlDatabase::addDatabase("QPSQL");
     mdb.setHostName("127.0.0.1");
     mdb.setPort(5432);
@@ -28,3 +29,4 @@ void BaseDatos::connectDatabase()
 
     }
 }
+

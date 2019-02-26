@@ -5,10 +5,15 @@
 class BaseDatos
 {
 public:
-    BaseDatos();
+    BaseDatos(QString hostname,int port, QString database,QString user,QString pass );
     void connectDatabase();
 private:
-    QSqlDatabase mdb;
+    QSqlDatabase mdb  ;
+    QString m_hostName;
+    int     m_port    ;
+    QString m_dataBase;
+    QString m_user    ;
+    QString m_pass    ;
 };
 
 #endif // BASEDATOS_H

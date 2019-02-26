@@ -20,10 +20,12 @@ SOURCES += \
     app.cpp \
     basedatos.cpp \
     websocket.cpp \
-    jsonbuilder.cpp
+    jsonbuilder.cpp \
+    readconf.cpp
 
 HEADERS += \
     app.h \
     basedatos.h \
     websocket.h \
-    jsonbuilder.h
+    jsonbuilder.h \
+    readconf.h
