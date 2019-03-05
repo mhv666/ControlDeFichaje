@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_WebSocket_t {
-    QByteArrayData data[8];
-    char stringdata0[95];
+    QByteArrayData data[9];
+    char stringdata0[109];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,16 +34,17 @@ static const qt_meta_stringdata_WebSocket_t qt_meta_stringdata_WebSocket = {
 QT_MOC_LITERAL(0, 0, 9), // "WebSocket"
 QT_MOC_LITERAL(1, 10, 6), // "closed"
 QT_MOC_LITERAL(2, 17, 0), // ""
-QT_MOC_LITERAL(3, 18, 15), // "consultarMarcas"
-QT_MOC_LITERAL(4, 34, 15), // "onNewConnection"
-QT_MOC_LITERAL(5, 50, 17), // "proessTextMessage"
-QT_MOC_LITERAL(6, 68, 7), // "message"
-QT_MOC_LITERAL(7, 76, 18) // "socketDisconnected"
+QT_MOC_LITERAL(3, 18, 16), // "sendDatosUsuario"
+QT_MOC_LITERAL(4, 35, 12), // "DatosCliente"
+QT_MOC_LITERAL(5, 48, 15), // "onNewConnection"
+QT_MOC_LITERAL(6, 64, 17), // "proessTextMessage"
+QT_MOC_LITERAL(7, 82, 7), // "message"
+QT_MOC_LITERAL(8, 90, 18) // "socketDisconnected"
 
     },
-    "WebSocket\0closed\0\0consultarMarcas\0"
-    "onNewConnection\0proessTextMessage\0"
-    "message\0socketDisconnected"
+    "WebSocket\0closed\0\0sendDatosUsuario\0"
+    "DatosCliente\0onNewConnection\0"
+    "proessTextMessage\0message\0socketDisconnected"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,20 +63,20 @@ static const uint qt_meta_data_WebSocket[] = {
 
  // signals: name, argc, parameters, tag, flags
        1,    0,   39,    2, 0x06 /* Public */,
-       3,    0,   40,    2, 0x06 /* Public */,
+       3,    1,   40,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    0,   41,    2, 0x08 /* Private */,
-       5,    1,   42,    2, 0x08 /* Private */,
-       7,    0,   45,    2, 0x08 /* Private */,
+       5,    0,   43,    2, 0x08 /* Private */,
+       6,    1,   44,    2, 0x08 /* Private */,
+       8,    0,   47,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 4,    2,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    6,
+    QMetaType::Void, QMetaType::QString,    7,
     QMetaType::Void,
 
        0        // eod
@@ -88,7 +89,7 @@ void WebSocket::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->closed(); break;
-        case 1: _t->consultarMarcas(); break;
+        case 1: _t->sendDatosUsuario((*reinterpret_cast< DatosCliente(*)>(_a[1]))); break;
         case 2: _t->onNewConnection(); break;
         case 3: _t->proessTextMessage((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 4: _t->socketDisconnected(); break;
@@ -104,8 +105,8 @@ void WebSocket::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
             }
         }
         {
-            typedef void (WebSocket::*_t)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&WebSocket::consultarMarcas)) {
+            typedef void (WebSocket::*_t)(DatosCliente );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&WebSocket::sendDatosUsuario)) {
                 *result = 1;
                 return;
             }
@@ -156,9 +157,10 @@ void WebSocket::closed()
 }
 
 // SIGNAL 1
-void WebSocket::consultarMarcas()
+void WebSocket::sendDatosUsuario(DatosCliente _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

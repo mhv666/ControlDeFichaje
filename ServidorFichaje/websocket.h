@@ -8,7 +8,11 @@
 #include "QtWebSockets/qwebsocket.h"
 
 
-
+struct DatosCliente
+{
+   QString mensaje;
+   QWebSocket *cliente;
+};
 class QWebSocketServer;
 class QWebSocket;
 class WebSocket :public QObject
@@ -19,7 +23,7 @@ public:
     ~WebSocket();
 signals:
     void closed();
-    void consultarMarcas();
+    void sendDatosUsuario(DatosCliente);
 
 private slots:
     void onNewConnection();

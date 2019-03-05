@@ -6,5 +6,15 @@ App::App():
     m_baseDatos{new BaseDatos(m_configuracion->m_host,m_configuracion->m_port.toInt(),m_configuracion->m_nombreBaseDatos,m_configuracion->m_nombreUsuario,m_configuracion->m_passUsuario)},
     m_jsonBuilder{new JsonBuilder()}
 {
+    connect(m_webSocket,&WebSocket::sendDatosUsuario,this , &App::recibirDatosUsuario);
+
+
 
 }
+
+
+void App::recibirDatosUsuario(DatosCliente datos)
+{
+
+}
+

@@ -21,14 +21,21 @@ QFile configuracion("configuracion.conf");
             QTextStream in(&configuracion);
             while (!in.atEnd())
             {
-              QString indice = in.readLine().split(":").at(0);
-              QString contenido = in.readLine().split(":").at(1);
-               if (indice == "host") m_host = contenido ;
-               if (indice == "port") m_port = contenido ;
-               if (indice == "baseDatos") m_nombreBaseDatos = contenido ;
-               if (indice == "usuario") m_nombreUsuario = contenido ;
-               if (indice == "passUsuario") m_passUsuario = contenido ;
-               if (indice == "portWs") m_portWs = contenido;
+                QString linea = in.readLine();
+
+                if ( linea.contains(":")) {
+
+                  QString indice = linea.split(":").at(0);
+                  QString contenido = linea.split(":").at(1);
+
+                   if (indice == "host") m_host = contenido ;
+                   if (indice == "port") m_port = contenido ;
+                   if (indice == "baseDatos") m_nombreBaseDatos = contenido ;
+                   if (indice == "usuario") m_nombreUsuario = contenido ;
+                   if (indice == "passUsuario") m_passUsuario = contenido ;
+                   if (indice == "portWs") m_portWs = contenido;
+
+                }
             }
             configuracion.close();
         }else{

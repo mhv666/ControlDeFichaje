@@ -6,7 +6,7 @@ class BaseDatos
 {
 public:
     BaseDatos(QString hostname,int port, QString database,QString user,QString pass );
-    void connectDatabase();
+    void connectDatabase(QString hostname,int port, QString database,QString user,QString pass);
 private:
     QSqlDatabase mdb  ;
     QString m_hostName;

@@ -55,13 +55,15 @@ SOURCES       = ../ServidorFichaje/main.cpp \
 		../ServidorFichaje/basedatos.cpp \
 		../ServidorFichaje/websocket.cpp \
 		../ServidorFichaje/jsonbuilder.cpp \
-		../ServidorFichaje/readconf.cpp moc_websocket.cpp
+		../ServidorFichaje/readconf.cpp moc_app.cpp \
+		moc_websocket.cpp
 OBJECTS       = main.o \
 		app.o \
 		basedatos.o \
 		websocket.o \
 		jsonbuilder.o \
 		readconf.o \
+		moc_app.o \
 		moc_websocket.o
 DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/common/unix.conf \
@@ -500,9 +502,18 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib64/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /usr/lib64/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_websocket.cpp
+compiler_moc_header_make_all: moc_app.cpp moc_websocket.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_websocket.cpp
+	-$(DEL_FILE) moc_app.cpp moc_websocket.cpp
+moc_app.cpp: ../ServidorFichaje/basedatos.h \
+		../ServidorFichaje/websocket.h \
+		../ServidorFichaje/jsonbuilder.h \
+		../ServidorFichaje/readconf.h \
+		../ServidorFichaje/app.h \
+		moc_predefs.h \
+		/usr/lib64/qt5/bin/moc
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/usuario/Documentos/sistemaDeFichaje/ServidorFichaje -I/usr/include/qt5 -I/usr/include/qt5/QtSql -I/usr/include/qt5/QtWebSockets -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/c++/7/x86_64-suse-linux -I/usr/include/c++/7/backward -I/usr/lib64/gcc/x86_64-suse-linux/7/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-suse-linux/7/include-fixed -I/usr/x86_64-suse-linux/include -I/usr/include ../ServidorFichaje/app.h -o moc_app.cpp
+
 moc_websocket.cpp: ../ServidorFichaje/websocket.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
@@ -520,7 +531,11 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 
 ####### Compile
 
-main.o: ../ServidorFichaje/main.cpp 
+main.o: ../ServidorFichaje/main.cpp ../ServidorFichaje/app.h \
+		../ServidorFichaje/basedatos.h \
+		../ServidorFichaje/websocket.h \
+		../ServidorFichaje/jsonbuilder.h \
+		../ServidorFichaje/readconf.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../ServidorFichaje/main.cpp
 
 app.o: ../ServidorFichaje/app.cpp ../ServidorFichaje/app.h \
@@ -541,6 +556,9 @@ jsonbuilder.o: ../ServidorFichaje/jsonbuilder.cpp ../ServidorFichaje/jsonbuilder
 
 readconf.o: ../ServidorFichaje/readconf.cpp ../ServidorFichaje/readconf.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o readconf.o ../ServidorFichaje/readconf.cpp
+
+moc_app.o: moc_app.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_app.o moc_app.cpp
 
 moc_websocket.o: moc_websocket.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_websocket.o moc_websocket.cpp
