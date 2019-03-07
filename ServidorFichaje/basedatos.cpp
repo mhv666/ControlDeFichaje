@@ -1,4 +1,7 @@
 #include <QDebug>
+#include <QString>
+
+
 #include <iostream>
 #include "basedatos.h"
 

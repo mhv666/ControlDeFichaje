@@ -7,8 +7,11 @@ App::App():
     m_jsonBuilder{new JsonBuilder()}
 {
     connect(m_webSocket,&WebSocket::sendDatosUsuario,this , &App::recibirDatosUsuario);
-
-
+    QString nombre = "marti";
+    QString apellido ="h";
+    bool ok = true;
+    QString hora ="12pm";
+    m_jsonBuilder->IniciarSessionOk(nombre,apellido,ok,hora);
 
 }
 
