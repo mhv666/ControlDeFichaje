@@ -22,14 +22,22 @@ void WebSocket::go()
         connect(m_webSocket, SIGNAL(connected()),this,SLOT(connected()));
         connect(m_webSocket, SIGNAL(disconnected()),this,SLOT(disconnected()));
         connect(m_webSocket, SIGNAL(textMessageReceived(QString)),this,SLOT(reciveMessage(QString)));
+
     m_webSocket->open(m_url);
 }
 void WebSocket::connected()
 {
 
+
 }
 void WebSocket::disconnected()
 {
+
+}
+void WebSocket::sendMessage(QString message)
+{
+
+    m_webSocket->sendTextMessage(message);
 
 }
 void WebSocket::reciveMessage(QString message)

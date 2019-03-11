@@ -18,7 +18,7 @@ private:
 public:
     explicit WebSocket(const QHostAddress ip, const quint16 port);
     ~WebSocket();
-    void sendMessage(QString message);
+
 
 signals:
     void proccesMessage(QString message);
@@ -29,6 +29,7 @@ public slots:
       void connected();
       void disconnected();
       void reciveMessage(QString message);
+      void sendMessage(QString message);
 
 };
 

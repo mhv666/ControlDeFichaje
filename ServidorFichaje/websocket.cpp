@@ -59,3 +59,4 @@ void WebSocket::socketDisconnected()
         pClient->deleteLater();
     } // end if
 }
+

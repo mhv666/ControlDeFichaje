@@ -18,6 +18,10 @@ App::App():
 
 void App::recibirDatosUsuario(DatosCliente datos)
 {
+    //TODO: sacar el ean13 del documento json y pasarlo al checkInCheckOut(Qstring ean13)
+    datos.mensaje;
+m_baseDatos->checkInCheckOut(datos.mensaje);
+
 
 }
 

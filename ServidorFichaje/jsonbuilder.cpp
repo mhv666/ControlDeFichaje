@@ -1,5 +1,5 @@
 #include <QDebug>
-
+#include <QString>
 #include <QJsonObject>
 #include "json.hpp"
 #include "jsonbuilder.h"
@@ -8,9 +8,9 @@ using json = nlohmann::json;
 JsonBuilder::JsonBuilder()
 {
 
+
+
 }
-
-
 void JsonBuilder::IniciarSessionOk(QString nombre,QString apellido, bool isCheckIn, QString hora)
 {
 json document;
@@ -23,8 +23,7 @@ empleado["Mensaje"]   =   mensaje.toStdString();
 
 document["session"]= empleado;
 
-qDebug()<<document.dump().c_str();
-
+QString document_qstring = document.dump().c_str();
 }
 
 void JsonBuilder::IniciarSessionRejected()
@@ -38,4 +37,9 @@ void JsonBuilder::IniciarSessionRejected()
     document["session"]= empleado;
 
     qDebug()<<document.dump().c_str();
+}
+
+QString JsonBuilder::extraerEan13(QString jsonDocument)
+{
+
 }

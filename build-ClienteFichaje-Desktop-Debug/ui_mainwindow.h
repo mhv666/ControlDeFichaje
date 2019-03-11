@@ -84,7 +84,7 @@ public:
         label_3->setGeometry(QRect(20, 240, 58, 18));
         label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(20, 170, 121, 18));
+        label_4->setGeometry(QRect(20, 170, 181, 18));
         ean13 = new QLineEdit(centralWidget);
         ean13->setObjectName(QStringLiteral("ean13"));
         ean13->setGeometry(QRect(20, 200, 351, 32));
@@ -100,7 +100,6 @@ public:
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
-        MainWindow->insertToolBarBreak(mainToolBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
@@ -117,9 +116,9 @@ public:
         label->setText(QApplication::translate("MainWindow", "Nombre", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "Password", Q_NULLPTR));
         rbSi->setText(QApplication::translate("MainWindow", "Si", Q_NULLPTR));
-        rbNo->setText(QApplication::translate("MainWindow", "No", Q_NULLPTR));
+        rbNo->setText(QApplication::translate("MainWindow", "&No", Q_NULLPTR));
         label_3->setText(QApplication::translate("MainWindow", "Habilitar", Q_NULLPTR));
-        label_4->setText(QApplication::translate("MainWindow", "Codigo Trabajador", Q_NULLPTR));
+        label_4->setText(QApplication::translate("MainWindow", "Codigo Trabajador asignado", Q_NULLPTR));
         btnActivar->setText(QApplication::translate("MainWindow", "Activar", Q_NULLPTR));
     } // retranslateUi
 

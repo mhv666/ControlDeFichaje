@@ -13,7 +13,6 @@ struct DatosCliente
    QString mensaje;
    QWebSocket *cliente;
 };
-class QWebSocketServer;
 class QWebSocket;
 class WebSocket :public QObject
 {
