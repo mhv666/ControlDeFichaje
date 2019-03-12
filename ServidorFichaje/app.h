@@ -16,6 +16,7 @@ public:
     BaseDatos    *m_baseDatos     = nullptr;
     WebSocket    *m_webSocket     = nullptr;
     JsonBuilder  *m_jsonBuilder   = nullptr;
+    bool isEan13Valid(QString ean13);
 public slots:
     void recibirDatosUsuario(DatosCliente datos);
 };
