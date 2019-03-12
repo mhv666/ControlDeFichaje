@@ -19,8 +19,14 @@ App::App():
 void App::recibirDatosUsuario(DatosCliente datos)
 {
     //TODO: sacar el ean13 del documento json y pasarlo al checkInCheckOut(Qstring ean13)
-    datos.mensaje;
-m_baseDatos->checkInCheckOut(datos.mensaje);
+
+    QString ean13;
+
+    ean13 = m_jsonBuilder->extraerEan13(datos.mensaje);
+    qDebug()<<"gbhtbhth"<< ean13.toInt();
+    //TODO: validar ean13;
+
+  m_baseDatos->checkInCheckOut(ean13);
 
 
 }

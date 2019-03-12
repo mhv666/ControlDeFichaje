@@ -41,5 +41,15 @@ void JsonBuilder::IniciarSessionRejected()
 
 QString JsonBuilder::extraerEan13(QString jsonDocument)
 {
+json parsedJson = json::parse(jsonDocument.toStdString());
+qDebug() << parsedJson.dump().c_str();
+
+
+json session = parsedJson["session"];
+json ean13  = session["ean13"];
+
+QString ean13Value{ean13.get<std::string>().c_str()};
+
+    return ean13Value;
 
 }
